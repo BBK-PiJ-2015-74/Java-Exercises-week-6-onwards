@@ -1,66 +1,39 @@
 //D06 Calculator Java class
 
-
-
 // define complex Class Calculator
+// generally classes are public so they can be used in other programs
+// generally methods are public so they can be called from others
+// generally fields within methods are private 
 
 public class Calculator {
-	private double numA;
-	private double numB;
-	public Calculator(double numA, double numB) {
-		this.numA = numA
-		this.numB = numB
+
+	public int add(int intA, int intB) {
+		int result = intA + intB;
+		return result; 
 	}
 
-public double Add(int, int) {
-	int intA = 0;
-	int intB = 0;
-	double numA = (double) intA;
-	double numB = (double) intB;
-	double result = numA + numB;
-	return result; 
-}
+	public int subtract(int intA, int intB) {
+		int result = intA + intB;
+		return result; 
+	}
 
-public double Subtract(int, int) {
-	int intA = 0;
-	int intB = 0;
-	double numA = (double) intA;
-	double numB = (double) intB;
-	double result = numA + numB;
-	return result; 
-}
+	public int multiply(int intA, int intB) {
+		int result = intA * intB;
+		return result; 
+	}
 
-public double Multiply(int, int) {
-	int intA = 0;
-	int intB = 0;
-	double numA = (double) intA;
-	double numB = (double) intB;
-	double result = numA*numB;
-	return result; 
-}
+	public double divide(int intA, int intB) {
+		double numA = (double) intA;
+		double numB = (double) intB;
+		double resultdouble = numA/numB;
+		return resultdouble; 
+	}
 
-public double XXXX(int, int) {
-	int intA = 0;
-	int intB = 0;
-	double numA = (double) intA;
-	double numB = (double) intB;
-	double result = numA*numB;
-	return result; 
-}
+	public int modulo(int intA, int intB) {
+		int result = intA % intB;
+		return result; 
+	}
 
 
 }	
 
-
-
-
-// define methods
-
-
-
-int Subtract(int, int){
-	int intA = 0;
-	int intB = 0;
-	int	result = intA - intB;
-	return result; 
-}
