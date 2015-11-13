@@ -13,41 +13,40 @@ public class ArrayCopier {										// define class ArrayCopier
 		int srclength = srcArray.length;
 		int destlength = destArray.length; 		
 		
-		System.out.println("The length of the source array is" + srclength);
-		System.out.println("The length of the destination array is" + destlength);
-		
 		if (srclength == destlength) {			// source and destination are equal
 		
-		System.out.println("Starting array copier, source and destination arrays are same length");
-		destArray = srcArray;
-		System.out.println("The length of both arrays is " + destlength);
+			System.out.println("The length of the source array is " + srclength);
+			System.out.println("The length of the destination array is " + destlength);
+			System.out.println("Starting array copier, source and destination arrays are same length");
+		
+			for (int i=0; i<destlength; i++) {
+				destArray[i] = srcArray[i];
+			}
 		
 		} else if (srclength > destlength){		// e.g. src 12345, dest xyz, dest' 123
 		
+			System.out.println("The length of the source array is " + srclength);
+			System.out.println("The length of the destination array is " + destlength);
 			System.out.println("Starting array copier, source is longer than destination so will truncate array");
 		
-			for (int i=0; i<(destlength); i++) {
-			destArray[i] = srcArray[i];
+			for (int i=0; i<destlength; i++) {
+				destArray[i] = srcArray[i];
 			}
-		
-		System.out.println("The source array is " + srcArray);      
-		System.out.println("The destination array is now " + destArray);
 		
 		} else {	// e.g. src 123, dest vwxyz, dest' 12300
-			
+		
+			System.out.println("The length of the source array is " + srclength);
+			System.out.println("The length of the destination array is " + destlength);	
 			System.out.println("Starting array copier, source is shorter than destination so will add zeros");
 		
-			for (int i=0; i<(srclength); i++) {
-			destArray[i] = srcArray[i];
+			for (int i=0; i<srclength; i++) {
+				destArray[i] = srcArray[i];
 			}
 			
-			for (int j=0; j>(destlength); j++) {
-			destArray[j] = 0;
+			for (int j=srclength; j<destlength; j++) {
+				destArray[j] = 0;
 			}
 			
-		System.out.println("The source array is " + srcArray);
-		System.out.println("The destination array is now " + destArray);
-
 		}
 		
 		return destArray;

@@ -17,13 +17,26 @@ public class ArrayCopier_main { // classname here has to be same as the filename
 		int[] arrayf = {55,23,45,67,78,89,1,0,34,56,2,76,467,88,12};
 		
 	  
-	 	ArrayCopier copyThing = new ArrayCopier(); //ArrayCopier is a class, copyThing is an instantiation of a complex object of the class
+	 	ArrayCopier copyThing1 = new ArrayCopier(); //ArrayCopier is a class, copyThing is an instantiation of a complex object of the class
+		ArrayCopier copyThing2 = new ArrayCopier(); //ArrayCopier is a class, copyThing is an instantiation of a complex object of the class
+		ArrayCopier copyThing3 = new ArrayCopier(); //ArrayCopier is a class, copyThing is an instantiation of a complex object of the class
+			 
+	 
 	 
 	 // run method copyArray on class instantiation copyThing
 	 
-	 	copyThing.copyArray(arraya, arrayb);
-	 	copyThing.copyArray(arrayc, arrayd);
-	 	copyThing.copyArray(arraye, arrayf);
+	 	System.out.println(Arrays.toString(arraya));  //using arrays package to print the array
+		System.out.println(Arrays.toString(arrayb));
+	
+		System.out.println(Arrays.toString(arrayc));  //using arrays package to print the array
+		System.out.println(Arrays.toString(arrayd));
+	
+		System.out.println(Arrays.toString(arraye));  //using arrays package to print the array
+		System.out.println(Arrays.toString(arrayf));
+	 	
+	 	copyThing1.copyArray(arraya, arrayb);
+	 	copyThing2.copyArray(arrayc, arrayd);
+	 	copyThing3.copyArray(arraye, arrayf);
 	    
 		System.out.println(Arrays.toString(arraya));  //using arrays package to print the array
 		System.out.println(Arrays.toString(arrayb));
