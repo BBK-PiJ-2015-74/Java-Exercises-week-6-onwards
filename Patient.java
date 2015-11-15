@@ -16,6 +16,8 @@ public class Patient {		//setting up fields of class Patient
 	}
 	// other methods come here ...
 	
+	// ************ ask, could I just use anotherPatient here instead of newPatient? I guess so, because the methods don't change the objects??
+	
 	public void addPatient (Patient newPatient) { // adding patients to the list: this is a member method of class Patient
 		if (this.nextPatient == null) { // this means the last patient in the list. Can use == because we are using pointers
 		this.nextPatient = newPatient;
@@ -34,6 +36,22 @@ public class Patient {		//setting up fields of class Patient
 		}
 		return anotherPatient;
 	}	// end of method printPatientList
+	
+	// now for removing patients. This is a member method, of class Patient
+	// returns true if the patient was found and removed, false otherwise
+	
+	public boolean deletePatient (Patient anotherPatient) {
+		System.out.println("Calling method deletePatient");
+		if (this.nextPatient == null) { // patient to remove was not found
+			return false;
+		} else if (this.nextPatient.equals(anotherPatient)) { // we found it! This is the next one. Now link this patient to the one after the next
+			this.nextPatient = nextPatient.nextPatient; // ************ this code does not make sense?? Ask
+			return true;
+		} else {
+			return this.nextPatient.deletePatient(anotherPatient);
+		}
+	}
+		
 		
 }		// end of class Patient
 
