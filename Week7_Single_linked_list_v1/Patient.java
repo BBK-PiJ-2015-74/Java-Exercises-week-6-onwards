@@ -46,12 +46,14 @@ public class Patient {		//setting up fields of class Patient
 			return false;
 		} else if (this.nextPatient.equals(anotherPatient)) { // we found it! This is the next one. Now link this patient to the one after the next
 			this.nextPatient = nextPatient.nextPatient; // ************ this code does not make sense?? Ask
+			anotherPatient = null;  // I was hoping this would re-set the pointer but it doesn't seem to work
 			return true;
 		} else {
 			return this.nextPatient.deletePatient(anotherPatient);
 		}
 	}
-		
+	
+	// newFirstItem.previous = null; // if you're accessing the instance variables directly.	
 		
 }		// end of class Patient
 

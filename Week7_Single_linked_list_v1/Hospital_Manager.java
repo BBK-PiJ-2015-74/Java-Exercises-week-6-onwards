@@ -32,6 +32,7 @@ public class Hospital_Manager {
 		
 		patientList.deletePatient(patient2);  // why is the method called three times although only 2 patients are deleted?
 		patientList.deletePatient(patient4);
+		patientList.deletePatient(patient1); // this does not work because we need to make the first object null
 		
 		patientList.printPatientList(patientList);
 		

@@ -1,0 +1,66 @@
+Day 6 recap
+
+Sequences of code - just lines of codes
+Iteration - loops, etc
+Selection - branching - e.g. if then else, switch-case etc
+Procedures - methods, functions. Functions/ methods groups of code that return a value
+
+Paradigms:
+Functional
+Logic
+Process oriented
+Object oriented: contains: Encapsulation, Inheritance, Message parsing, Polymorphism
+
+Encapsulation: means building a brick wall round code and using interfaces. Plug and play
+Software integrated circuit. Cox. Objective C
+
+Message passing: sync, a-sync. 
+s.charAt() - method charAt passes a message to string s. This is synchronous
+
+Polymorphism - ad-hoc, parametric.
+
+Encapsulation
+
+private int i
+public int j
+
+A a = new A() 
+
+can't do a.i because i is private
+
+Setters and getters (accessors and mutators) allow you to get private objects.
+
+IDE = integrated development environment like Eclipse (open source).
+
+Or Intelli j
+
+
+Instantiations of the class go in a separate file that starts with psvm
+
+Patient/ Hospital manager example:
+
+
+public class Patient {
+	private String name;
+	private int age;
+	private String illness;
+	private Patient prevPatient;
+	private Patient nextPatient;
+	
+	public Patient (String name, int age, String illness) { // constructor
+	
+	
+Separate file (psvm):
+
+public class PatientTest {
+
+	public static void main (String [] args) {
+		Patient p = new Patient("Charlie", 40, "Something");
+		System.out.println(p); // this code will just print a memory address of the object
+	}
+
+}
+
+
+
+
