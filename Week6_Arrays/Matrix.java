@@ -9,142 +9,138 @@ import java.util.Arrays; 									// used to print arrays
 
 public class Matrix {										//define public class Matrix
 	
-	private int[][] matrix;									//define variable matrix as two arrays of integers within class Matrix
+	private int[][] myMatrix;									//define variable matrix as two arrays of integers within class Matrix
 		
-	public Matrix (int rows, int columns) {				// starting Matrix constructor methods. No return statement in a constructor method
-		matrix = new int [rows][columns];
-		System.out.println("\nStarting 'Matrix' constructor method\n"); // use \n if there are quotes in the println statement
-		System.out.println("\nCreating matrix (" + rows + "," + columns + "). Initialising each element to 1\n");
+	public Matrix (int rows, int columns) {				// starting Matrix constructor methods. No return statement in a constructor method. Constructor methods must be public
+		myMatrix = new int [rows][columns];
+		System.out.println("Starting Matrix constructor method"); // use \n if there are quotes in the println statement
+		System.out.println("Creating my Matrix (" + rows + "," + columns + "). Initialising each element to 1");
 		for (int i=0;i<rows;i++) {
 			for (int j=0;j<columns;j++) { 
-			this.matrix[i][j]=1;
+			this.myMatrix[i][j]=1;
 			}
 		}
 	}													// end of Constructor method matrix
 		
-	public void setElement (int rowindex, int columnindex, int value){   //rowindex is the position of the row i.e. [i]
+	private void setElement (int rowindex, int columnindex, int value){   //rowindex is the position [i], columnindex is position [j], value = i,j
 		System.out.println("\nStarting setElement method\n");
-		if (rowindex > this.getRowLength()) {					// not this.matrix.getRowLength because getRowLength is already operating on matrix
+		if (rowindex != this.getRowLength()) {					// getRowLength() operates on the matrix constructed = 'this'
 			System.out.println("Exception: there are " + this.getRowLength() + "rows whereas you have specified an index of" + rowindex);
 	
-		} else if (columnindex > this.getColumnLength()) {
-			 	System.out.println("Exception: there are " + this.getColumnLength() + "columns whereas you have specified an index of" + columnindex);
+		} else if (columnindex != this.getColumnLength()) {
+			 System.out.println("Exception: there are " + this.getColumnLength() + "columns whereas you have specified an index of" + columnindex);
 			
 		} else {
-			this.matrix[rowindex][columnindex] = value;
+			this.myMatrix[rowindex][columnindex] = value; // sets the element [i][j] to the value given
 		}
-	} 		
+	} // end of method setElement 		
 		
 	public int getRowLength() {
-		int result = matrix.length;  // why isn't this matrix[][0].length
+		int result = myMatrix.length;  // why isn't this matrix[][0].length
 		return result;
 	}
 			
 	public int getColumnLength() {
-		int result = matrix[0].length;  //why isn't this matrix[0][].length
+		int result = myMatrix[0].length;  //why isn't this matrix[0][].length
 		return result; 
 	}
 
+	public int countCommas (String rowinput) { // count the commas in the string e.g. 1,2,3 and then check the index is not > (number of characters in the string less the commas)
+		int result = 0;
+			for (int i = 0; i<rowinput.length(); i++) {  
+				if (rowinput.charAt(i) == (",")) {
+					result = result + 1;
+				}
+			}
+			return result;				// returns the number of commas in the string rowinput		
+	} // countCommas method finishes here
 	
-	public void setRow (int rowindex, String rowinput) { // take an arbitrary string rowvalues and make the values of the string the row of the matrix at index rowindex
-
+	
+	private void setRow (int rowindex, String rowinput) { // take an arbitrary string rowinput 1,2,3 and make the row of the matrix at index rowindex, equal to the string without the commas
 		System.out.println("Starting method setRow:");
 		int commacount = countCommas(rowinput);
-		int rowvalidate = rowinput.length - commacount;  // rowvalidate = length of input string less number of commas
+		int rowvalidate = rowinput.length() - commacount;  // rowvalidate = length of input string less number of commas
 		int matrixcolumn = 0;
+		String rowoutput = "";
 		
-		if (rowvalidate != this.getColumnLength) {
+		if (rowvalidate != this.getColumnLength()) {
 			System.out.println("There is an error. The row input string has more elements than the constructed matrix.");
 		} else {
 		
-		// now set the elements in the given row, rowindex
-		// first of all take out the commas and turn this into a new string
-		
-		String rowoutput = "";
-		for (int i = 0; i<rowinput.length; i++){
-			if (rowinput.charAt(i) == ",") {
-				rowoutput = "";
-			} else {
-				rowoutput = rowoutput+rowinput.charAt(i);
+			for (int i = 0; i<rowinput.length(); i++){ // first of all take out the commas and turn this into a new string
+				if (rowinput.charAt(i) == ",") {
+					rowoutput = "";
+				} else {
+					rowoutput = rowoutput+rowinput.charAt(i);
+				}
 			}
 		}
 		
-		for (matrixcolumn = 0; matrixcolumn < rowoutput.length; matrixcolumn++) { // start at matrixcolumn 0 and move along each time
+		for (matrixcolumn = 0; matrixcolumn < rowoutput.length(); matrixcolumn++) { // start at matrixcolumn 0 and move along each time
 			char rowelementchar = rowoutput.charAt(matrixcolumn);
 			String rowelementstr = Character.getNumericValue(rowelementchar);
 			int rowelement = Integer.parseInt(rowelementstr);
-			this.matrix[rows][matrixcolumn] = rowelement;
+			this.myMatrix[rows][matrixcolumn] = rowelement;
 		}
 		
 	} // setRow method finishes here
 	
-	private int countCommas (String rowinput) { // count the commas in the string e.g. 1,2,3 and then check the index is not > (number of characters in the string less the commas)
-		int result = 0;
-			for (int i = 0; i<rowinput.length; i++) {  
-				if (rowinput.charAt(i) == ",") {
-					result = result + 1;
-				}
-			}
-			return result;				// returns the number of commas in the string rowvalues		
-	} // countCommas method finishes here
 
-		
-	public void setColumn (int columnindex, String columninput) { // take an arbitrary string rowvalues and make the values of the string the row of the matrix at index rowindex
+	private void setColumn (int columnindex, String columninput) { // take an arbitrary string columninput and make the values of the string the row of the matrix at index rowindex
 
 		System.out.println("Starting method setColumn:");
 		int commacount = countCommas(columninput);
-		int columnvalidate = columninput.length - commacount;  // rowvalidate = length of input string less number of commas
+		int columnvalidate = columninput.length() - commacount;  // columnvalidate = length of input string less number of commas
 		int matrixrow = 0;
+		String columnoutput = "";
 		
-		if (rowvalidate != this.getRowLength) {
+		if (columnvalidate != this.getRowLength()) {
 			System.out.println("There is an error. The column input string has more elements than the constructed matrix.");
 		} else {
 		
-		// now set the elements in the given column, columnindex
-		// first of all take out the commas and turn this into a new string
-		
-		String columnoutput = "";
-		for (int i = 0; i<columninput.length; i++){
-			if (columninput.charAt(i) == ",") {
+			for (int j = 0; j<columninput.length(); j++){ // first of all take out the commas and turn this into a new string
+				if ((columninput.charAt(j)) == ",") {
 				columnoutput = "";
-			} else {
-				columnoutput = columnoutput + columninput.charAt(i);
-			}
-		}
+				} else {
+					columnoutput = columnoutput + columninput.charAt(j);
+				}
+			}	
+		}																// now set the elements in the given column, columnindex
 		
-		for (matrixrow = 0; matrixrow < columnoutput.length; matrixrow++) { // start at matrixcolumn 0 and move along each time
+		for (matrixrow = 0; matrixrow < columnoutput.length(); matrixrow++) { // start at matrixcolumn 0 and move along each time
 			char columnelementchar = columnoutput.charAt(matrixrow);
 			String columnelementstr = Character.getNumericValue(columnelementchar);
 			int columnelement = Integer.parseInt(columnelementstr);
-			this.matrix[matrixrow][columns] = columnelement;
+			this.myMatrix[matrixrow][columns] = columnelement;
 		}
 		
 	} // setColumn method finishes here
 
-	public String matrixToString() {
+	private String matrixToString() {
 	
 		System.out.println("Starting matrixToString method which returns array as a string");
 		String str = "";
-		for (int rows=0;rows<this.getRowLength();row++) { //for each row
-			for (int columns=0; columns <this.getColumnLength();column++) { //for each column in each row 
-				str = "[" + this.matrix[rows][columns] + str + "]";
-				while (columns<this.getColumnLength()-1 {  //or should this be -1?
+		for (int rows=0;rows<this.getRowLength();rows++) { //for each row
+			for (int columns=0; columns <this.getColumnLength();columns++) { //for each column in each row 
+				str = "[" + this.myMatrix[rows][columns] + str + "]";
+				while (columns<(this.getColumnLength()-1)) { 
 					str = str + ","; 		//add comma on the column loop unless it's the last column
 				}
 			}
-			while (rows<this.getRowLength()-1){
+			while (rows<(this.getRowLength()-1)) {
 				str = str + ";"; //  add semicolon to show row break for each loop of the row unless it's the last row
 			}
 		}
 		return str;
-		
+
 	} // End of public method matrixToString
 	
 	public void prettyPrint() {
 		System.out.println("Starting pretty print method");
 		System.out.println("Dimensions (" +  this.getRowLength() + "," + this.getColumnLength() + ")");
 		for (int i=0; i<this.getRowLength(); i++) { //for each row
-			System.out.println(Arrays.toString(matrix[i])); // print the array at that row
+			System.out.println(Arrays.toString(myMatrix[i])); // print the array at that row
+		}
 	} // End of prettyPrint method
 		
 
