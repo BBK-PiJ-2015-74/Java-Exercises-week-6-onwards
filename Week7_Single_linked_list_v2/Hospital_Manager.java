@@ -21,12 +21,14 @@ public class Hospital_Manager {
 		this.acceptPatient ("Paul", 35, "Aids");
 		this.acceptPatient ("Oliver", 46, "Influenza");
 		
+		
 		this.printAllPatients(); // call method printAllPatients on this Hospital Manager
 		this.removeDeadPatient("Lucie");
 		this.removeDeadPatient("Mary"); 
 		this.removeDeadPatient("Paul"); 
 		
 		this.printAllPatients();
+		
 	}
 	
 	public void printAllPatients() {
