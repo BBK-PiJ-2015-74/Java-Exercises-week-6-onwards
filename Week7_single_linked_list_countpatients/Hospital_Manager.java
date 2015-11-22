@@ -40,12 +40,14 @@ public class Hospital_Manager {
 	}
 	
 	public int countAllPatientsRecursive(){
-		int result = patientListStart.countPatientsRecursive();
+		int result = 0;
+		result = patientListStart.countPatientsRecursive();
 		return result;
 	}
 	
-	public int countAllPatientsIterative(){
-		int result = patientListStart.countPatientsIterative();
+	public int countAllPatientsRecursive(){
+		int result = 0;
+		result = patientListStart.countPatientsRecursive();
 		return result;
 	}
 	

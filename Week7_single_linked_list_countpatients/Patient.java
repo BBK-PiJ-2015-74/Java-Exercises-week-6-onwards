@@ -46,7 +46,7 @@ public class Patient {
 		if (this.nextPatient == null) { //i.e. we are at the end of the list
 			return numberofpatients;
 		} else {
-			numberofpatients = 1 + countPatientsRecursive();
+			numberofpatients = 1 + this.nextPatient.countPatientsRecursive();
 			return numberofpatients; 
 		}
 	}
