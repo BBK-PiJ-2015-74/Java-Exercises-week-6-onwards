@@ -41,12 +41,12 @@ public class Patient {
 		return this.nextPatient;
 	}	// end of method printPatientList
 	
-	public int countPatientsRecursive() { // count patients recursively
+	public int countPatientsRecursive(Patient anotherPatient) { // count patients recursively
 		int numberofpatients = 1;
 		if (this.nextPatient == null) { //i.e. we are at the end of the list
 			return numberofpatients;
 		} else {
-			numberofpatients = 1 + this.nextPatient.countPatientsRecursive();
+			numberofpatients = 1 + countPatientsRecursive(anotherPatient);
 			return numberofpatients; 
 		}
 	}

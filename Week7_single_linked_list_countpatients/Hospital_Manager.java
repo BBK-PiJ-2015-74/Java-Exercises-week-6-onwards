@@ -39,15 +39,15 @@ public class Hospital_Manager {
 		patientListStart.printPatientList();
 	}
 	
-	public int countAllPatientsRecursive(){
+	public int countAllPatientsRecursive(Patient anotherPatient){
 		int result = 0;
-		result = patientListStart.countPatientsRecursive();
+		result = patientListStart.countPatientsRecursive(patientListStart);
 		return result;
 	}
 	
-	public int countAllPatientsRecursive(){
+	public int countAllPatientsRecursive(Patient anotherPatient){
 		int result = 0;
-		result = patientListStart.countPatientsRecursive();
+		result = patientListStart.countPatientsRecursive(patientListStart);
 		return result;
 	}
 	
