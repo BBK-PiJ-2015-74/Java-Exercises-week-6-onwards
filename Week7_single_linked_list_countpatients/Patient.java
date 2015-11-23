@@ -41,25 +41,6 @@ public class Patient {
 		return this.nextPatient;
 	}	// end of method printPatientList
 	
-	public int countPatientsRecursive(Patient anotherPatient) { // count patients recursively
-		int numberofpatients = 1;
-		if (this.nextPatient == null) { //i.e. we are at the end of the list
-			return numberofpatients;
-		} else {
-			numberofpatients = 1 + countPatientsRecursive(anotherPatient);
-			return numberofpatients; 
-		}
-	}
-	
-	public int countPatientsIterative() {
-        int result = 0;
-        do {
-            result++;
-            this.nextPatient = this.nextPatient.getNextPatient();
-        } while (this.nextPatient != null);
-        return result;
-    }
-	
 	
 	public boolean deletePatient (String name) {		// returns true if the patient was found and pointer removed, false otherwise
 		System.out.println("Calling method deletePatient");

@@ -21,8 +21,8 @@ public class Hospital_Manager {
 		this.acceptPatient ("Paul", 35, "Aids");
 		this.acceptPatient ("Oliver", 46, "Influenza");
 		
-		this.countAllPatientsRecursive;
-		this.countAllPatientsIterative;
+		System.out.println("Number of Patients: \t"+this.countPatientsRecursive(patientListStart));
+		//this.countPatientsIterative();
 		
 		this.printAllPatients(); // call method printAllPatients on this Hospital Manager
 		this.removeDeadPatient("Lucie");
@@ -31,25 +31,34 @@ public class Hospital_Manager {
 		
 		this.printAllPatients();
 		
-		this.countAllPatientsRecursive;
-		this.countAllPatientsIterative;
+		System.out.println("Number of Patients: \t"+this.countPatientsRecursive(patientListStart));
+		//this.countPatientsIterative();
 	}
 	
 	public void printAllPatients() {
 		patientListStart.printPatientList();
 	}
 	
-	public int countAllPatientsRecursive(Patient anotherPatient){
-		int result = 0;
-		result = patientListStart.countPatientsRecursive(patientListStart);
-		return result;
+	
+	public int countPatientsRecursive(Patient anotherPatient) { // count patients recursively
+		int numberofpatients = 1;
+		if (anotherPatient.getNextPatient() == null) { //i.e. we are at the end of the list
+			return numberofpatients;
+		} else {
+			numberofpatients = 1 + countPatientsRecursive(anotherPatient.getNextPatient()); // move down the list
+			return numberofpatients; 
+		}
 	}
 	
-	public int countAllPatientsRecursive(Patient anotherPatient){
-		int result = 0;
-		result = patientListStart.countPatientsRecursive(patientListStart);
-		return result;
-	}
+	//public int countPatientsIterative() {
+      //  int result = 0;
+       // do {
+//             result++;
+//             this.nextPatient = this.nextPatient.getNextPatient();
+//         } while (this.nextPatient != null);
+//         return result;
+//     }
+// 	
 	
 	public void acceptPatient(String name, int age, String illness) { // accept patients to the list which have been added in the patient file
 		Patient newPatient = new Patient(name, age, illness);
